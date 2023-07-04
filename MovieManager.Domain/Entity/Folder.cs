@@ -15,8 +15,9 @@ namespace MovieManager.Domain.Entity
 
         //public List <Movie> movies = new List <Movie> ();
         public List <Movie> Movies { get; set; }
-        public Folder() 
+        public Folder(string name) 
         {
+            Name = name;
             Movies = new List<Movie>();
         }
     }

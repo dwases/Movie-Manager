@@ -33,8 +33,8 @@ namespace MovieManager
             }
             else
             {
-                Folder NewFolder = new Folder();
-                NewFolder.Name = new_folder_name;
+                Folder NewFolder = new Folder(new_folder_name);
+                //NewFolder.Name = new_folder_name;
                 folderService.folders.Add(NewFolder);
             }
             /*
@@ -49,7 +49,7 @@ namespace MovieManager
         }
         //for choice #2
         //public void AddMovieToFolder(ref List <Folder> AllFolders)
-        public void AddMovieToFolder(ref FolderService folderService)
+        public void AddMovieToFolder(ref FolderService folderService, ref MovieService movieService)
         {
             Console.WriteLine("Input the name of the folder you wish to add your movie to:");
             string chosen_folder_name = Console.ReadLine();
@@ -83,10 +83,11 @@ namespace MovieManager
                 string movie_name = Console.ReadLine();
                 Console.WriteLine("Input the synopsis of the movie you wish to add to the folder:");
                 string movie_synopsis = Console.ReadLine();
-                Movie new_movie = new Movie();
-                new_movie.Name = movie_name;
-                new_movie.Synopsis = movie_synopsis;
+                Movie new_movie = new Movie(movie_name, movie_synopsis);
+                //new_movie.Name = movie_name;
+                //new_movie.Synopsis = movie_synopsis;
                 folderService.AddMovie(new_movie, chosen_folder_name);
+                movieService.AddMovie(new_movie);
                 //folder.Movies.Add(new_movie);
             }
             else
@@ -133,6 +134,17 @@ namespace MovieManager
                 return;
             }
             */
+        }
+        //for choice #5
+        public void ShowAllMovies(MovieService movieService)
+        {
+            Console.WriteLine("Wykaz nazw wszystkich filmów obsługiwanych przez platformę:");
+            Console.Write(" | ");
+            foreach(string st in movieService.ReturnMovieNames())
+            {
+                Console.Write(st + " | ");
+            }
+            Console.WriteLine();
         }
     }
 }

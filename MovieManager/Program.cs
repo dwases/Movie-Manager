@@ -3,9 +3,10 @@ using MovieManager.App.Concrete;
 using MovieManager.Domain.Entity;
 //data
 int choice = 0;
-List<Folder> Folders = new List<Folder>();
+//List<Folder> Folders = new List<Folder>();
 //
 FolderService folderService = new FolderService();
+MovieService movieService = new MovieService();
 //
 MenuMethods MenuMethodsInvoker = new MenuMethods();
 
@@ -18,7 +19,8 @@ while (true)
     Console.WriteLine("2. Add a new movie to an existing folder");
     Console.WriteLine("3. Show all existing folder names");
     Console.WriteLine("4. Show movie list in a chosen folder");
-    Console.WriteLine("5. Exit MovieManager");
+    Console.WriteLine("5. Display the names of all movies on the platform");
+    Console.WriteLine("6. Exit MovieManager");
     choice = Convert.ToInt32(Console.ReadLine());
     switch (choice)
     {
@@ -28,7 +30,7 @@ while (true)
             break;
         case 2:
             //MenuMethodsInvoker.AddMovieToFolder(ref Folders);
-            MenuMethodsInvoker.AddMovieToFolder(ref folderService);
+            MenuMethodsInvoker.AddMovieToFolder(ref folderService, ref movieService);
             break;
         case 3:
             //MenuMethodsInvoker.ShowFolderNames(Folders);
@@ -39,6 +41,9 @@ while (true)
             MenuMethodsInvoker.ShowMovies(folderService);
             break;
         case 5:
+            MenuMethodsInvoker.ShowAllMovies(movieService);
+            break;
+        case 6:
             System.Environment.Exit(0);
             break;
         default:
