@@ -11,15 +11,12 @@ namespace MovieManager.App.Concrete
     public class FolderService : BaseService<Folder>
     {
         public List<Folder> folders = new List<Folder>();
-        //public List<Folder> folders;
-
-        //testing grounds
-        public bool DoesFolderExist(string new_name)
+        public bool DoesFolderExist(string newName)
         {
             bool flag = false;
             foreach (var folder in folders)
             {
-                if (folder.Name == new_name)
+                if (folder.Name == newName)
                 {
                     flag = true;
                     break;
@@ -27,13 +24,14 @@ namespace MovieManager.App.Concrete
             }
             return flag;
         }
-        public void AddMovie(Movie new_movie, string chosen_folder_name)
+        public void AddMovie(Movie newMovie, string chosenFolderName, MovieService movieService)
         {
+            movieService.Movies.Add(newMovie);
             foreach (var folder in folders)
             {
-                if (chosen_folder_name == folder.Name)
+                if (chosenFolderName == folder.Name)
                 {
-                    folder.Movies.Add(new_movie);
+                    folder.Movies.Add(newMovie);
                     return;
                 }
             }
@@ -43,12 +41,12 @@ namespace MovieManager.App.Concrete
         {
             foreach (Folder folder in folders) { Console.Write(" " + folder.Name); }
         }
-        public void ShowMoviesWithDesc(string folder_name)
+        public void ShowMoviesWithDesc(string FolderName)
         {
             bool flag = false;
             foreach (Folder folder in folders)
             {
-                if (folder_name == folder.Name)
+                if (FolderName == folder.Name)
                 {
                     flag = true;
                     Console.WriteLine("Showing the names and descriptions of all movies in a chosen folder:");

@@ -3,11 +3,8 @@ using MovieManager.App.Concrete;
 using MovieManager.Domain.Entity;
 //data
 int choice = 0;
-//List<Folder> Folders = new List<Folder>();
-//
 FolderService folderService = new FolderService();
 MovieService movieService = new MovieService();
-//
 MenuMethods MenuMethodsInvoker = new MenuMethods();
 
 //Main Menu
@@ -25,19 +22,15 @@ while (true)
     switch (choice)
     {
         case 1:
-            //MenuMethodsInvoker.AddFolder(ref Folders);
             MenuMethodsInvoker.AddFolder(ref folderService);
             break;
         case 2:
-            //MenuMethodsInvoker.AddMovieToFolder(ref Folders);
             MenuMethodsInvoker.AddMovieToFolder(ref folderService, ref movieService);
             break;
         case 3:
-            //MenuMethodsInvoker.ShowFolderNames(Folders);
             MenuMethodsInvoker.ShowFolderNames(folderService);
             break;
         case 4:
-            //MenuMethodsInvoker.ShowMovies(Folders);
             MenuMethodsInvoker.ShowMovies(folderService);
             break;
         case 5:
