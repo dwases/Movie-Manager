@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MovieManager.Abstract;
 using MovieManager.App.Concrete;
 using MovieManager.Domain.Entity;
 
 namespace MovieManager
 {
-    public class MenuMethods
+    public class MenuMethods : IMenuMethods
     {
         //for choice #1
         public void AddFolder(ref FolderService folderService)

@@ -25,4 +25,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MovieManager.App\MovieManager.App.csproj" />
+    <ProjectReference Include="..\MovieManager.Domain\MovieManager.Domain.csproj" />
+    <ProjectReference Include="..\MovieManager\MovieManager.csproj" />
+  </ItemGroup>
+
 </Project>
