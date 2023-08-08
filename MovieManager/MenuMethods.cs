@@ -42,6 +42,8 @@ namespace MovieManager
                 string movieSynopsis = Console.ReadLine();
                 Movie newMovie = new Movie(movieName, movieSynopsis);
                 folderService.AddMovie(newMovie, chosenFolderName, movieService);
+                movieService.UpdateFile();
+                folderService.UpdateFile();
             }
             else
             {
@@ -68,7 +70,7 @@ namespace MovieManager
         //for choice #5
         public void ShowAllMovies(MovieService movieService)
         {
-            Console.WriteLine("Wykaz nazw wszystkich filmów obsługiwanych przez platformę:");
+            Console.WriteLine("Names of all movies managed by the platform:");
             Console.Write(" | ");
             foreach(string st in movieService.ReturnMovieNames())
             {

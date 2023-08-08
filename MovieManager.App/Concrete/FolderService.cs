@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MovieManager.App.Common;
 using MovieManager.Domain.Entity;
+using Newtonsoft.Json;
 
 namespace MovieManager.App.Concrete
 {
@@ -61,6 +62,32 @@ namespace MovieManager.App.Concrete
                 Console.WriteLine("The folder named this way does not exist. Request denied.");
                 return;
             }
+        }
+        void Initialize()
+        {
+            string tempPath = System.IO.Path.GetTempPath();
+            string FILE_NAME = tempPath + @"\Folders.txt";
+            if (File.Exists(FILE_NAME))
+            {
+                string json = File.ReadAllText(FILE_NAME);
+                folders = JsonConvert.DeserializeObject<List<Folder>>(json);
+            }
+        }
+        public FolderService()
+        {
+            Initialize();
+        }
+        public void UpdateFile()
+        {
+            string output = JsonConvert.SerializeObject(folders);
+
+            string tempPath = System.IO.Path.GetTempPath();
+            string FILE_NAME = tempPath + @"\Folders.txt";
+            using StreamWriter sw = new StreamWriter(FILE_NAME);
+            using JsonWriter writer = new JsonTextWriter(sw);
+
+            JsonSerializer serializer = new JsonSerializer();
+            serializer.Serialize(writer, folders);
         }
     }
 }

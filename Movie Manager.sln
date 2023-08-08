@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieManager.App", "MovieMa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieManager.Domain", "MovieManager.Domain\MovieManager.Domain.csproj", "{9140CE07-B6EF-4C6F-9426-705D13081DE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie Manager.Tests", "Movie Manager.Tests\Movie Manager.Tests.csproj", "{753E4D90-01B6-4795-B4D7-292A2A5249C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Movie Manager.Tests", "Movie Manager.Tests\Movie Manager.Tests.csproj", "{753E4D90-01B6-4795-B4D7-292A2A5249C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
